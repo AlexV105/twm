@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechWave</title>
+    <style>
+   
+        body {
+            background-color: rgba(240, 240, 240, 0.9);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Top Navbar styles */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #003366;
+            z-index: 2;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .top-navbar-logo {
+            font-size: 29px;
+            color: #fcfaff;
+            text-decoration: none;
+            margin-right: auto;
+            margin-left: 10px;
+        }
+
+        .top-navbar-toggle {
+            font-size: 30px;
+            color: #fcfaff;
+            cursor: pointer;
+        }
+
+        /* Left Navbar styles */
+        .left-navbar {
+            height: 100%;
+            width: 250px; 
+            position: fixed;
+            z-index: 3; 
+            top: 60px; 
+            left: 0;
+            background-color: #16508b;
+            overflow-x: hidden;
+            transition: 0.5s;
+           
+        }
+
+        .left-navbar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #fcfaff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .left-navbar a:hover {
+            color: #66ccff;
+        }
+
+        .left-navbar .submenu {
+            display: none; 
+            padding-left: 20px;
+        }
+
+        .left-navbar .has-submenu.active + .submenu {
+            display: block;
+        }
+        
+  
+       
+    </style>
+</head>
+<body>
+
+<!-- Top Navbar -->
+<div class="top-navbar">
+    <span class="top-navbar-toggle" onclick="toggleLeftNavbar()">&#9776;</span>
+    <a href="index.php" class="top-navbar-logo">TechWave</a>
+</div>
+
+<!-- Left Navbar -->
+<div id="leftNavbar" class="left-navbar">
+    <a href="#" class="has-submenu" onclick="toggleSubmenu(this)">Puhelimet</a>
+    <div class="submenu">
+        <a href="puhelimet.php">Puhelimet</a>
+        <a href="kaapelit.php">Laturit&Kaapelit</a>
+    </div>
+    <a href="#" class="has-submenu" onclick="toggleSubmenu(this)">Kamerat</a>
+    <div class="submenu">
+        <a href="kamerat.php">Pikakamerat</a>
+        <a href="kamerat2.php">Digikamerat</a>
+    </div>
+    <a href="#" class="has-submenu" onclick="toggleSubmenu(this)">Ääni</a>
+    <div class="submenu">
+        <a href="kaiuttimet.php">Kaiuttimet</a>
+    </div>
+    <a href="#" class="has-submenu" onclick="toggleSubmenu(this)">Ota yhteyttä</a>
+    <div class="submenu">
+        <a href="Yhteystiedot.php">Yhteystiedot</a>
+    </div>
+</div>
+
+
+
+<script>
+    function openLeftNavbar() {
+        document.getElementById("leftNavbar").style.width = "250px";
+    }
+
+    function closeLeftNavbar() {
+        document.getElementById("leftNavbar").style.width = "0";
+    }
+
+    function toggleSubmenu(el) {
+        el.classList.toggle("active"); 
+    }
+
+    function toggleLeftNavbar() {
+        var leftNavbar = document.getElementById("leftNavbar");
+        leftNavbar.style.width = leftNavbar.style.width === "0px" ? "250px" : "0";
+    }
+</script>
+
+</body>
+</html>
